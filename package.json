@@ -1,0 +1,31 @@
+{
+  "name": "react-project",
+  "version": "1.0.0",
+  "description": "react project created by sahith",
+  "scripts": {
+    "test": "jest",
+    "start":"parcel index.html",
+    "build":"parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sahithreddy738/ReactLearnings.git"
+  },
+  "author": "sahith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sahithreddy738/ReactLearnings/issues"
+  },
+  "homepage": "https://github.com/sahithreddy738/ReactLearnings#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browersList":[
+    "last 2 version"
+  ]
+}
