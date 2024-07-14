@@ -39,3 +39,19 @@
  .rest-card img {
     width: 100%;
  }
+
+ .input-field {
+    height:10px;
+    border-radius: 10px;
+    margin-left: 20px;
+    padding: 10px;
+ }
+ .rated-btn {
+    width:100px;
+    height: 30px;
+    margin-left: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: lightgreen;
+    cursor: pointer;
+ }
