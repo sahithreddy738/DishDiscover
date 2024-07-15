@@ -2,7 +2,7 @@ import { FOOD_URL } from "../utils/constants";
 
 const RestaurantCard=({resData}) =>{
     const {name,areaName,costForTwo,cuisines,avgRating,sla,cloudinaryImageId}=resData?.info;
-    const {deliveryTime}=sla;
+    const {slaString}=sla;
     return (
         <div className="rest-card">
              <img className="rest-logo" src={FOOD_URL+cloudinaryImageId}></img>
@@ -11,7 +11,7 @@ const RestaurantCard=({resData}) =>{
              <h4>{costForTwo}</h4>
              <h4>{cuisines.join(",")}</h4>
              <h4>{avgRating} Rating</h4>
-             <h4>{deliveryTime} Minutes</h4>
+             <h4>{slaString}</h4>
             
         </div>
     )
