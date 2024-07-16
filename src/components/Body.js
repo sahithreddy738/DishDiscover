@@ -1,4 +1,3 @@
-import { RESTAURANT_LIST } from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";

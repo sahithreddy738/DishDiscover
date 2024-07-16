@@ -1,3 +1,16 @@
+@font-face {
+   font-family: 'Gilroy-Regular';
+   src: local('Gilroy-Regular'), url(./fonts/Gilroy-Regular.ttf) format('truetype');
+ }
+ 
+ @font-face {
+   font-family: 'Gilroy-Medium';
+   src: local('Gilroy-Medium'), url(./fonts/Gilroy-Medium.ttf) format('truetype');
+ }
+ 
+ *{
+   font-family: "Gilroy-Regular";
+ }
 .header-container{
     display: flex;
     justify-content: space-between;
@@ -87,4 +100,27 @@
     padding: 5px;
     border-radius: 5px;
     background-color: rgb(219, 222, 226);
+ }
+
+ .card-container{
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 5px;
+   padding: 10px;
+   border-radius: 10px;
+   border-bottom: 1px solid rgb(199, 197, 197);
+ }
+
+ .menu-container{
+   display: flex;
+   flex-direction: column;
+   margin: 5px 400px;
+
+ }
+
+ .menu-img {
+   width:100px;
+   border-radius: 20px;
+   height: 100px;
+   margin: 5px;
  }
