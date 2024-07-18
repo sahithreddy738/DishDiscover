@@ -17,7 +17,6 @@ const CardMenu = ({ menuData }) => {
           <img src={ITEM_URL + imageId} className="menu-img"></img>
         </div>
       </div>
-
   );
 };
 
