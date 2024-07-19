@@ -1,11 +1,13 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [input, setInput] = useState("");
+  const onlineStatus=useOnlineStatus();
   const handleClick = () => {
     const filteredData = listOfRestaurants.filter(
       (restaurant) => restaurant.info.avgRating > 4
@@ -36,6 +38,7 @@ const Body = () => {
       console.log(error);
     }
   };
+  if(onlineStatus===false) return (<h1>Check your Internet Connection!!!</h1>);
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
