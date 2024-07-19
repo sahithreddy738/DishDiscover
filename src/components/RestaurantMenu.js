@@ -1,25 +1,14 @@
-import { useEffect, useState } from "react";
-import { RESTAURANT_MENU_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
 import CardMenu from "./CardMenu";
 import Shimmer from "./Shimmer";
+import useRestaurantMenu from "../utils/userestaurantMenu";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const RestaurantMenu=() =>{
-    const [restaurantData,setRestaurantData]=useState([]);
-    useEffect(()=>{
-        fetchRestaurantData();
-    },[])
     const {resId}=useParams();
-    const fetchRestaurantData=async() =>{
-        try {
-            console.log(RESTAURANT_MENU_URL+resId);
-            const data=await fetch(RESTAURANT_MENU_URL+resId);
-            const jsonData=await data.json();
-            setRestaurantData(jsonData.data?.cards);
-        } catch (error) {
-            console.log(error);
-        }
-    } 
+    const restaurantData=useRestaurantMenu(resId);
+    const onlineStatus=useOnlineStatus();
+    if(onlineStatus===false) return <h1>Check your Internet Connection!!!</h1>
     if(restaurantData.length===0) return <Shimmer/>;
     const {name,costForTwoMessage,avgRatingString,totalRatingsString,sla,feeDetails}=restaurantData[2].card?.card?.info;
     const {slaString}=sla;
