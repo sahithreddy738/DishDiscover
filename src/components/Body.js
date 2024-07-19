@@ -7,7 +7,7 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [input, setInput] = useState("");
-  const onlineStatus=useOnlineStatus();
+  const onlineStatus = useOnlineStatus();
   const handleClick = () => {
     const filteredData = listOfRestaurants.filter(
       (restaurant) => restaurant.info.avgRating > 4
@@ -38,37 +38,39 @@ const Body = () => {
       console.log(error);
     }
   };
-  if(onlineStatus===false) return (<h1>Check your Internet Connection!!!</h1>);
+  if (onlineStatus === false) return <h1>Check your Internet Connection!!!</h1>;
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body-container">
-      <div className="search-container">
-        <input
-          placeholder="search restaurants"
-          className="input-field"
-          onChange={handleChange}
-        ></input>
+      <div className="flex m-4 p-2">
+        <div>
+          <input
+            placeholder="Search Restaurants"
+            className="border border-solid rounded-md px-4 py-2 "
+            onChange={handleChange}
+          ></input>
+          <button
+            className="bg-green-300 mx-2 px-4 py-2 rounded-lg"
+            onClick={() => {
+              const restaurants = listOfRestaurants.filter((restaurant) =>
+                restaurant.info.name.toLowerCase().includes(input.toLowerCase())
+              );
+              setFilteredRestaurants(restaurants);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
-          className="search-btn"
-          onClick={() => {
-            const restaurants = listOfRestaurants.filter((restaurant) =>
-              restaurant.info.name.toLowerCase().includes(input.toLowerCase())
-            );
-            setFilteredRestaurants(restaurants);
-          }}
-        >
-          search
-        </button>
-        <button
-          className="rated-btn"
-          children="Top-Rated"
+          className="bg-black text-white mx-2 px-4 py-2 rounded-lg "
+          children="Top-Rated ⭐"
           onClick={handleClick}
         ></button>
       </div>
-      <div className="rest-container">
+      <div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant}  />
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
     </div>

@@ -29,14 +29,14 @@ componentDidUpdate() {
     const { count } = this.state;
     console.log("child render");
     return (
-      <div className="user-card">
+      <div className="flex flex-col space-y-2 mx-4 p-6 shadow-lg rounded-lg">
         <h2>Count={count}</h2>
-         <button onClick={()=>{
+         <button className="bg-black text-white w-32 py-2 px-2" onClick={()=>{
             this.setState({
                 count:this.state.count+1
             });
          }}>Count Increase</button>
-        <h2>{name}</h2>
+        <h2 className="font-bold">{name}</h2>
         <h3>{location}</h3>
         <h3>{twitter_username}</h3>
       </div>

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
    font-family: 'Gilroy-Regular';
    src: local('Gilroy-Regular'), url(./fonts/Gilroy-Regular.ttf) format('truetype');
@@ -9,124 +13,5 @@
  }
  
  *{
-   font-family: "Gilroy-Regular";
- }
-.header-container{
-    display: flex;
-    justify-content: space-between;
-    background-color: lightgray;
-    border-radius: 3px ;
-    margin: 10px ;
-}
-.nav-items > ul {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    padding: 10px;
-}
-.nav-items > ul > li {
-    margin: 8px; 
-    font-size: 24px;
-}
-.logo {
-    width:100px;
-}
-
-.rest-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.rest-card {
-    width: 300px;
-    margin: 15px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: lightsteelblue;
-
-}
-
-.rest-card:hover{
-    border: 1px solid black;
-}
- .rest-card img {
-    width: 100%;
- }
-
- .input-field {
-    height:10px;
-    border-radius: 10px;
-    margin-left: 20px;
-    padding: 10px;
- }
- .rated-btn {
-    width:100px;
-    height: 30px;
-    margin-left: 40px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: lightgreen;
-    cursor: pointer;
- }
-
- .login-btn {
-    width:80px;
-    height:30px;
-    margin: 6px 4px 0px 0px;
-    cursor: pointer;
-    border-radius: 5px;
- }
- .search-btn{
-    width:80px;
-    height:30px;
-    margin-left: 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: rgb(243, 118, 118);
- }
-
- .search-container {
-    display: flex;
- }
- .shimmer-container{
-    display:flex;
-    flex-wrap: wrap;
- }
-
- .shimmer-card {
-    width: 300px;
-    height:300px;
-    margin: 15px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: rgb(219, 222, 226);
- }
-
- .card-container{
-   display: flex;
-   justify-content: space-between;
-   margin-bottom: 5px;
-   padding: 10px;
-   border-radius: 10px;
-   border-bottom: 1px solid rgb(199, 197, 197);
- }
-
- .menu-container{
-   display: flex;
-   flex-direction: column;
-   margin: 5px 400px;
-
- }
-
- .menu-img {
-   width:100px;
-   border-radius: 20px;
-   height: 100px;
-   margin: 5px;
- }
-
- .user-card{
-   margin: 10px;
-   padding: 10px;
-   border-bottom: 1px solid rgb(185, 184, 184);
+   font-family: "Gilroy-Medium";
  }
