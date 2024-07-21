@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedRestaurantCard } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -8,6 +8,7 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [input, setInput] = useState("");
   const onlineStatus = useOnlineStatus();
+  const RestaurantCardUpdated = withPromotedRestaurantCard(RestaurantCard);
   const handleClick = () => {
     const filteredData = listOfRestaurants.filter(
       (restaurant) => restaurant.info.avgRating > 4
@@ -39,7 +40,7 @@ const Body = () => {
     }
   };
   if (onlineStatus === false) return <h1>Check your Internet Connection!!!</h1>;
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants === undefined ? (
     <Shimmer />
   ) : (
     <div className="body-container">
@@ -69,9 +70,17 @@ const Body = () => {
         ></button>
       </div>
       <div className="flex flex-wrap">
-        {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-        ))}
+        {filteredRestaurants.map((restaurant) =>
+          restaurant.info.aggregatedDiscountInfoV3 &&
+          Object.keys(restaurant.info.aggregatedDiscountInfoV3).length > 0 ? (
+            <RestaurantCardUpdated
+              key={restaurant.info.id}
+              resData={restaurant}
+            />
+          ) : (
+            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          )
+        )}
       </div>
     </div>
   );

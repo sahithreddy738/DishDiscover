@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -10,13 +10,20 @@ import CustomError from "./components/CustomError";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 
+
 const Grocery = React.lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
+  // const [userName,setUserName]=useState("");
+  // useEffect(()=>{
+  //   //making an api call
+  //   setUserName("sahith");
+  // },[])
   return (
+   
     <div className="app-container">
-      <Header />
-      <Outlet />
+        <Header />
+        <Outlet />
     </div>
   );
 };

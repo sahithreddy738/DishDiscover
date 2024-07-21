@@ -19,7 +19,7 @@ const RestaurantCard = ({ resData }) => {
   };
   return (
     <div
-      className="w-[250px] bg-gray-300 m-4 p-4 rounded-lg"
+      className="w-[250px] bg-gray-300 m-4 mt-0 p-4 rounded-lg hover:cursor-pointer"
       onClick={handleClick}
     >
       <img className="w-60 rounded-lg" src={FOOD_URL + cloudinaryImageId}></img>
@@ -36,5 +36,18 @@ const RestaurantCard = ({ resData }) => {
     </div>
   );
 };
+
+export const withPromotedRestaurantCard=(RestaurantCard) =>{
+    return (props) => {
+        const {header,subHeader}=props.resData?.info?.aggregatedDiscountInfoV3;
+
+        return(
+            <div>
+                 <p className="text-black pt-3 pl-8 font-bold text-2xl">{header} {subHeader}</p>
+                <RestaurantCard {...props}/>
+            </div>
+        )
+    }
+}
 
 export default RestaurantCard;
