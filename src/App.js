@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,22 +9,20 @@ import Contact from "./components/Contact";
 import CustomError from "./components/CustomError";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
-
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const Grocery = React.lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
-  // const [userName,setUserName]=useState("");
-  // useEffect(()=>{
-  //   //making an api call
-  //   setUserName("sahith");
-  // },[])
   return (
-   
-    <div className="app-container">
+    <Provider store={appStore}>
+      <div className="app-container">
         <Header />
         <Outlet />
-    </div>
+      </div>
+    </Provider>
   );
 };
 
@@ -58,6 +56,10 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path:"/cart",
+        element:<Cart />
+      }
     ],
   },
 ]);
