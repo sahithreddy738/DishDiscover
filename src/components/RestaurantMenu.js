@@ -19,7 +19,6 @@ const RestaurantMenu = () => {
   const { slaString } = sla;
   const { message } = feeDetails;
   const items = restaurantData[4].groupedCard?.cardGroupMap?.REGULAR?.cards;
-  console.log(restaurantData);
   return (
     <div>
       <div className="w-[800px] mx-auto shadow-sm bg-black text-white rounded-lg flex flex-col space-y-2 my-4 p-4">

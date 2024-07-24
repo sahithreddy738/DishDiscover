@@ -16,6 +16,7 @@ const Cart = () => {
         <button
           className="p-2 text-white bg-black rounded-lg"
           onClick={() => dispatch(clearCart())}
+          data-testid="clear-cart-btn"
         >
           Clear Cart
         </button>

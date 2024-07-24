@@ -7,8 +7,8 @@ const RestaurantCategory=({data}) => {
         setShowItems(!showItems);
     }
     return (
-        <div className="w-[800px] mx-auto my-4 p-4 border-b-2" >
-            <div className="flex justify-between cursor-pointer" onClick={handleClick}>
+        <div  className="w-[800px] mx-auto my-4 p-4 border-b-2" >
+            <div data-testid="accrodion" className="flex justify-between cursor-pointer" onClick={handleClick}>
                 <span className="font-bold text-lg">{title}-{`(`+itemCards.length+`)`}</span>
                 <span>⬇️</span>
             </div>

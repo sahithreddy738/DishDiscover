@@ -40,7 +40,7 @@ const Body = () => {
     }
   };
   if (onlineStatus === false) return <h1>Check your Internet Connection!!!</h1>;
-  return listOfRestaurants === undefined ? (
+  return  listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body-container">
@@ -59,6 +59,7 @@ const Body = () => {
               );
               setFilteredRestaurants(restaurants);
             }}
+            data-testid="search-btn"
           >
             Search
           </button>
@@ -67,10 +68,11 @@ const Body = () => {
           className="bg-black text-white mx-2 px-4 py-2 rounded-lg "
           children="Top-Rated ⭐"
           onClick={handleClick}
+          data-testid="rating-btn"
         ></button>
       </div>
-      <div className="flex flex-wrap">
-        {filteredRestaurants.map((restaurant) =>
+      <div className="flex flex-wrap" data-testid="res-list">
+        {filteredRestaurants?.map((restaurant) =>
           restaurant.info.aggregatedDiscountInfoV3 &&
           Object.keys(restaurant.info.aggregatedDiscountInfoV3).length > 0 ? (
             <RestaurantCardUpdated
