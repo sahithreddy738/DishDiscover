@@ -13,7 +13,7 @@ const CardMenu = ({ menuData }) => {
   };
   const toBeRemoveItems=cardItems.filter((item)=>item.card?.info?.id===id);
   return (
-    <div className="w-[700px] mx-auto my-6 p-4 flex justify-between shadow-lg rounded-lg">
+    <div data-testid="food-item" className="w-[700px] mx-auto my-6 p-4 flex justify-between shadow-lg rounded-lg">
       <div className="flex flex-col space-y-3 w-10/12">
         <h2 className="font-bold ">{name}</h2>
         <h3>Rs.{price > 0 ? price / 100 : defaultPrice / 100}</h3>
@@ -26,6 +26,7 @@ const CardMenu = ({ menuData }) => {
           <button
             className="text-2xl m-2 px-[5px] bg-black text-white rounded-lg cursor-pointer"
             onClick={() => handleClick()}
+            data-testid="add-food-btn"
           >
             +
           </button>
@@ -35,6 +36,7 @@ const CardMenu = ({ menuData }) => {
               <button
                 className="text-2xl m-2 px-[5px] bg-black text-white rounded-lg cursor-pointer"
                 onClick={()=>dispatch(removeItem(menuData))}
+                data-testid="remove-food-btn"
               >
                 -
               </button>

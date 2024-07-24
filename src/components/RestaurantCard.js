@@ -21,6 +21,7 @@ const RestaurantCard = ({ resData }) => {
     <div
       className="w-[250px] bg-gray-300 m-4 mt-0 p-4 rounded-lg hover:cursor-pointer"
       onClick={handleClick}
+      data-testid="resCard"
     >
       <img className="w-60 rounded-lg" src={FOOD_URL + cloudinaryImageId}></img>
       <h3 className="my-4 font-bold">{name}</h3>
@@ -42,7 +43,7 @@ export const withPromotedRestaurantCard=(RestaurantCard) =>{
         const {header,subHeader}=props.resData?.info?.aggregatedDiscountInfoV3;
 
         return(
-            <div>
+            <div data-testid="resCard">
                  <p className="text-black pt-3 pl-8 font-bold text-2xl">{header} {subHeader}</p>
                 <RestaurantCard {...props}/>
             </div>

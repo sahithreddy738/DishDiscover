@@ -14,7 +14,6 @@ const cartSlice=createSlice({
             state.items.length=0;
         },
         removeItem:(state,action) => {
-            console.log(action);
             const filteredItems=state.items.filter((item)=>item.card?.info?.id===action.payload?.card?.info?.id);
             const index=state.items.indexOf(filteredItems[0]);
             state.items.splice(index,1);
